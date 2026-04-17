@@ -13,15 +13,14 @@ export default defineConfig({
       { text: 'Home', link: '/' },
     ],
 
-    sidebar: (generateSidebar({
+    sidebar: generateSidebar({
       documentRootPath: '/',
-      excludeFolders: ['.vitepress', 'node_modules'],
+      excludeByGlobPattern: ['.vitepress/**', 'node_modules/**', 'CLAUDE*.md'],
       capitalizeFirst: true,
       useTitleFromFrontmatter: true,
       collapsed: true,
       collapseDepth: 2,
-      sortMenusByFrontmatterOrder: true,
-    }) as any[]).filter((item: any) => !['CLAUDE', 'CLAUDE.local'].includes(item.text)),
+    }),
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Andrevile/wiki' },
