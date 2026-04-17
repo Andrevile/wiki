@@ -37,12 +37,61 @@ Claude Code는 세션이 종료돼도 학습한 내용을 기억할 수 있는 *
 
 ## 메모리 종류
 
-| 타입 | 설명 | 예시 |
-|------|------|------|
-| `user` | 유저 역할, 선호도, 지식 수준 | "프론트엔드 개발자" |
-| `feedback` | 행동 규칙 (하지 말 것 / 계속 할 것) | "PR 방식으로만 머지" |
-| `project` | 진행 중인 작업, 목표, 맥락 | "wiki 저장소 목적" |
-| `reference` | 외부 시스템 포인터 | "버그는 Linear INGEST 프로젝트에서 관리" |
+| 타입 | 설명 | 저장 시점 |
+|------|------|-----------|
+| `user` | 유저 역할, 선호도, 지식 수준 | 유저 정보를 처음 알게 됐을 때 |
+| `feedback` | 행동 규칙 (하지 말 것 / 계속 할 것) | 교정이나 확인을 받았을 때 |
+| `project` | 진행 중인 작업, 목표, 맥락 | 프로젝트 컨텍스트를 파악했을 때 |
+| `reference` | 외부 시스템 포인터 | 외부 리소스 위치를 알게 됐을 때 |
+
+## Best Practice
+
+### 메모리 파일 직접 작성하기
+
+Claude가 자동으로 저장하길 기다리지 않고 직접 써두면 더 정확하다.
+
+```md
+<!-- ~/.claude/projects/.../memory/user_profile.md -->
+---
+name: User Profile
+type: user
+description: 유저는 5년차 프론트엔드 개발자
+---
+
+React/TypeScript 메인. 백엔드는 학습 중.
+백엔드 개념 설명 시 프론트 관점에서 비유해서 설명할 것.
+코드 예시는 TypeScript로.
+```
+
+### feedback 메모리 잘 활용하기
+
+교정이 발생했을 때 이유까지 같이 저장해두면 나중에 판단 근거가 된다.
+
+```md
+<!-- feedback_git_workflow.md -->
+---
+name: Git Workflow Rule
+type: feedback
+---
+
+main 브랜치 직접 커밋/푸시 금지. 항상 PR을 거친다.
+
+**Why:** PR 기반 워크플로우를 학습하고 습관화하기 위함.
+**How to apply:** 파일 작성 후 항상 브랜치 생성 → PR 생성.
+```
+
+### MEMORY.md 인덱스 간결하게 유지하기
+
+MEMORY.md는 200줄 한도가 있고 매 세션마다 로드된다. 내용을 직접 쓰지 말고 포인터만 남긴다.
+
+```md
+<!-- MEMORY.md — 인덱스만 관리 -->
+# Memory Index
+
+- [User Profile](user_profile.md) — 프론트엔드 개발자, 백엔드 학습 중
+- [Git Workflow](feedback_git_workflow.md) — PR 방식 강제
+- [Project Context](project_context.md) — wiki 저장소 목적
+```
 
 ## 설정
 
