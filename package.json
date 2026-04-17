@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Andrevile/wiki#readme",
   "devDependencies": {
-    "vitepress": "^1.6.4"
+    "vitepress": "^1.6.4",
+    "vitepress-sidebar": "^1.33.1"
   }
 }
