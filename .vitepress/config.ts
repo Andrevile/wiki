@@ -6,6 +6,7 @@ export default defineConfig({
   description: '개발 지식을 깊이 있게 정리하는 공간',
   base: '/wiki/',
   ignoreDeadLinks: true,
+  srcExclude: ['CLAUDE.md', 'CLAUDE.local.md'],
 
   themeConfig: {
     nav: [
@@ -14,7 +15,8 @@ export default defineConfig({
 
     sidebar: generateSidebar({
       documentRootPath: '/',
-      excludeFiles: ['CLAUDE.md'],
+      excludeFiles: ['CLAUDE.md', 'CLAUDE.local.md'],
+      excludeFilesByFrontmatterFieldName: 'exclude',
       excludeFolders: ['.vitepress', 'node_modules'],
       capitalizeFirst: true,
       useTitleFromFrontmatter: true,
