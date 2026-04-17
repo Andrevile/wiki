@@ -2,9 +2,9 @@
 layout: home
 
 hero:
-  name: 개발 지식 위키
-  text: 프론트엔드 개발자의 백엔드 학습 기록
-  tagline: 네트워크, 백엔드, 데이터베이스, 인프라, 보안 그리고 AI까지
+  name: DevWiki
+  text: 개발 지식을 깊이 있게 정리하는 공간
+  tagline: 네트워크, 백엔드, 데이터베이스, 인프라, 보안, AI까지
   actions:
     - theme: brand
       text: 시작하기
