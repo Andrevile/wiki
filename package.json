@@ -1,0 +1,26 @@
+{
+  "name": "wiki",
+  "version": "1.0.0",
+  "description": "프론트엔드 개발자가 백엔드까지 이해하기 위해 공부한 내용을 정리하는 공간.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrevile/wiki.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Andrevile/wiki/issues"
+  },
+  "homepage": "https://github.com/Andrevile/wiki#readme",
+  "devDependencies": {
+    "vitepress": "^1.6.4"
+  }
+}
