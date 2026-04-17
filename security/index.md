@@ -1,6 +1,11 @@
+---
+title: Security
+description: 웹 보안, 인증/인가 개념 정리
+---
+
 # Security
 
-보안 기초, OAuth, JWT, HTTPS 등 보안 관련 개념 정리.
+## 분류
 
-## 목차
-
+- [Web](./web/) — OWASP Top 10, XSS, CSRF
+- [Auth](./auth/) — OAuth, JWT, 세션
