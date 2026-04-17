@@ -15,13 +15,11 @@ export default defineConfig({
 
     sidebar: generateSidebar({
       documentRootPath: '/',
-      excludeFolders: ['.vitepress', 'node_modules'],
-      excludeByGlobPattern: ['CLAUDE*.md'],
+      excludeByGlobPattern: ['.vitepress/**', 'node_modules/**', 'CLAUDE*.md'],
       capitalizeFirst: true,
       useTitleFromFrontmatter: true,
       collapsed: true,
       collapseDepth: 2,
-      sortMenusByFrontmatterOrder: true,
     }),
 
     socialLinks: [
